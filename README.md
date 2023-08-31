@@ -5,6 +5,7 @@ Architecture:
 ![image](https://github.com/QaiserDS/InsuranceFraudDetection/assets/95518289/0ccb0719-b8a1-4388-9422-39cc37d84ccb)
 
 Data Description
+
 The client will send data in multiple sets of files in batches at a given location. The data has been extracted from the census bureau. The data contains the following attributes: Features:
 
 months_as_customer: It denotes the number of months for which the customer is associated with the insurance company.
@@ -47,13 +48,16 @@ auto_year: The year of manufacture of the vehicle.
 Target Label:
 Whether the claim is fraudulent or not. 38. fraud_reported: Y or N Apart from training files, we also require a "schema" file from the client, which contains all the relevant information about the training files such as: Name of the files, Length of Date value in FileName, Length of Time value in FileName, Number of Columns, Name of the Columns, and their datatype.
 
+
 Data Description
 The client will send data in multiple sets of files in batches at a given location.
 Data will contain Wafer names and 590 columns of different sensor values for each wafer.
 The last column will have the "Good/Bad" value for each wafer.
 
+
 Apart from training files, we laso require a "schema" file from the client, which contain all the
 relevant information about the training files such as:
+
 
 Name of the files, Length of Date value in FileName, Length of Time value in FileName, NUmber of Columnns, 
 Name of Columns, and their dataype.
