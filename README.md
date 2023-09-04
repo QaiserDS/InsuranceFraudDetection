@@ -1,67 +1,68 @@
 # Insurance Fraud Detection
 To build a classification methodology to determine whether a customer is placing a fraudulent insurance claim.
 
-Architecture:
+**Architecture:**
+
 ![image](https://github.com/QaiserDS/InsuranceFraudDetection/assets/95518289/0ccb0719-b8a1-4388-9422-39cc37d84ccb)
 
-Data Description
+**Data Description**
 
-The client will send data in multiple sets of files in batches at a given location. The data has been extracted from the census bureau. The data contains the following attributes: Features:
+1) months_as_customer: It denotes the number of months for which the customer is associated with the insurance company.
+2) age: continuous. It denotes the age of the person.
+3) policy_number: The policy number.
+4) policy_bind_date: Start date of the policy.
+5) policy_state: The state where the policy is registered.
+6) policy_csl-combined single limits. How much of the bodily injury will be covered from the total damage.
+7) policy_deductable: The amount paid out of pocket by the policy-holder before an insurance provider will pay any expenses.
+8) policy_annual_premium: The yearly premium for the policy.
+9) umbrella_limit: An umbrella insurance policy is extra liability insurance coverage that goes beyond the limits of the insured's homeowners, auto or watercraft insurance. It provides an additional layer of security to those who are at risk of being sued for damages to other people's property or injuries caused to others in an accident.
+10) insured_zip: The zip code where the policy is registered.
+11) insured_sex: It denotes the person's gender.
+12) insured_education_level: The highest educational qualification of the policy-holder.
+13) insured_occupation: The occupation of the policy-holder.
+14) insured_hobbies: The hobbies of the policy-holder.
+15) insured_relationship: Dependents on the policy-holder.
+16) capital-gain: It denotes the monitory gains by the person.
+17) capital-loss: It denotes the monitory loss by the person.
+18) incident_date: The date when the incident happened.
+19) incident_type: The type of the incident.
+20) collision_type: The type of collision that took place.
+21) incident_severity: The severity of the incident.
+22) authorities_contacted: Which authority was contacted.
+23) incident_state: The state in which the incident took place.
+24) incident_city: The city in which the incident took place.
+25) incident_location: The street in which the incident took place.
+26) incident_hour_of_the_day: The time of the day when the incident took place.
+27) property_damage: If any property damage was done.
+28) bodily_injuries: Number of bodily injuries.
+29) Witnesses: Number of witnesses present.
+30) police_report_available: Is the police report available.
+31) total_claim_amount: Total amount claimed by the customer.
+32) injury_claim: Amount claimed for injury
+33) property_claim: Amount claimed for property damage.
+34) vehicle_claim: Amount claimed for vehicle damage.
+35) auto_make: The manufacturer of the vehicle
+36) auto_model: The model of the vehicle.
+37) auto_year: The year of manufacture of the vehicle.
 
-months_as_customer: It denotes the number of months for which the customer is associated with the insurance company.
-age: continuous. It denotes the age of the person.
-policy_number: The policy number.
-policy_bind_date: Start date of the policy.
-policy_state: The state where the policy is registered.
-policy_csl-combined single limits. How much of the bodily injury will be covered from the total damage. https://www.berkshireinsuranceservices.com/arecombinedsinglelimitsbetter
-policy_deductable: The amount paid out of pocket by the policy-holder before an insurance provider will pay any expenses.
-policy_annual_premium: The yearly premium for the policy.
-umbrella_limit: An umbrella insurance policy is extra liability insurance coverage that goes beyond the limits of the insured's homeowners, auto or watercraft insurance. It provides an additional layer of security to those who are at risk of being sued for damages to other people's property or injuries caused to others in an accident.
-insured_zip: The zip code where the policy is registered.
-insured_sex: It denotes the person's gender.
-insured_education_level: The highest educational qualification of the policy-holder.
-insured_occupation: The occupation of the policy-holder.
-insured_hobbies: The hobbies of the policy-holder.
-insured_relationship: Dependents on the policy-holder.
-capital-gain: It denotes the monitory gains by the person.
-capital-loss: It denotes the monitory loss by the person.
-incident_date: The date when the incident happened.
-incident_type: The type of the incident.
-collision_type: The type of collision that took place.
-incident_severity: The severity of the incident.
-authorities_contacted: Which authority was contacted.
-incident_state: The state in which the incident took place.
-incident_city: The city in which the incident took place.
-incident_location: The street in which the incident took place.
-incident_hour_of_the_day: The time of the day when the incident took place.
-property_damage: If any property damage was done.
-bodily_injuries: Number of bodily injuries.
-Witnesses: Number of witnesses present.
-police_report_available: Is the police report available.
-total_claim_amount: Total amount claimed by the customer.
-injury_claim: Amount claimed for injury
-property_claim: Amount claimed for property damage.
-vehicle_claim: Amount claimed for vehicle damage.
-auto_make: The manufacturer of the vehicle
-auto_model: The model of the vehicle.
-auto_year: The year of manufacture of the vehicle.
-Target Label:
+**Target Label:**    
+
 Whether the claim is fraudulent or not. 38. fraud_reported: Y or N Apart from training files, we also require a "schema" file from the client, which contains all the relevant information about the training files such as: Name of the files, Length of Date value in FileName, Length of Time value in FileName, Number of Columns, Name of the Columns, and their datatype.
 
+**Data Description:** 
 
-Data Description
 The client will send data in multiple sets of files in batches at a given location.
 Data will contain Wafer names and 590 columns of different sensor values for each wafer.
 The last column will have the "Good/Bad" value for each wafer.
 
-
 Apart from training files, we laso require a "schema" file from the client, which contain all the
 relevant information about the training files such as:
 
-
 Name of the files, Length of Date value in FileName, Length of Time value in FileName, NUmber of Columnns, 
 Name of Columns, and their dataype.
-Data Validation
+
+**Data Validation:** 
+
 In This step, we perform different sets of validation on the given set of training files.
 
 Name Validation: We validate the name of the files based on the given name in the schema file. We have 
@@ -81,7 +82,9 @@ the files into Database. If the datatype is wrong, then the file is moved to "Ba
 
 Null values in columns: If any of the columns in a file have all the values as NULL or missing, we discard such
 a file and move it to "Bad_Data_Folder".
-Data Insertion in Database
+
+**Data Insertion in Database:** 
+
  Database Creation and Connection: Create a database with the given name passed. If the database is already created,
  open the connection to the database.
  
@@ -93,8 +96,10 @@ Data Insertion in Database
  Insertion of file in the table: All the files in the "Good_Data_Folder" are inserted in the above-created table. If
  any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to 
  "Bad_Data_Folder".
-Model Training
- Data Export from Db: The data in a stored database is exported as a CSV file to be used for model training.
+
+ **Model Training:** 
+
+  Data Export from Db: The data in a stored database is exported as a CSV file to be used for model training.
  
  Data Preprocessing: 
     Check for null values in the columns. If present, impute the null values using the KNN imputer.
@@ -104,3 +109,5 @@ Model Training
     
  Clustering: KMeans algorithm is used to create clusters in the preprocessed data. The optimum number of clusters 
  is selected
+
+
